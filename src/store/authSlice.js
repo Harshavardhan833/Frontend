@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../api'; // 👈 FIX: Import the central API client
+import api from '../api';
 
 // Get user and tokens from localStorage
 const user = JSON.parse(localStorage.getItem('user'));
@@ -18,8 +18,8 @@ export const loginUser = createAsyncThunk(
   'auth/login',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      // 👇 FIX: Use the 'api' client with a relative path, not a hardcoded URL
-      const response = await api.post('/auth/login/', { email, password });
+      // ✅ FIX: Added the "/api/" prefix to the URL
+      const response = await api.post('/api/auth/login/', { email, password });
       
       localStorage.setItem('user', JSON.stringify(response.data.user));
       localStorage.setItem('accessToken', response.data.access);
@@ -39,7 +39,8 @@ export const logoutUser = createAsyncThunk(
     try {
         const refreshToken = localStorage.getItem('refreshToken');
         if (refreshToken) {
-            await api.post('/auth/logout/', { refresh: refreshToken });
+            // ✅ FIX: Added the "/api/" prefix to the URL
+            await api.post('/api/auth/logout/', { refresh: refreshToken });
         }
     } catch (err) {
         console.error("Logout API call failed, but logging out client-side anyway.", err.response?.data);
