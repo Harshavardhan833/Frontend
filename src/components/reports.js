@@ -51,7 +51,7 @@ const ReportsPage = () => {
             params.append('end_date', format(dateRange[0].endDate, 'yyyy-MM-dd'));
             params.append('page', page + 1);
             
-            const response = await api.get(`/reports/?${params.toString()}`);
+            const response = await api.get(`/api/reports/?${params.toString()}`);
             
             if (response.data && typeof response.data === 'object' && 'results' in response.data) {
                 setReportData(response.data.results || []);

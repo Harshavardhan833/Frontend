@@ -101,7 +101,7 @@ const VehicleAnalysisPage = () => {
                     // A real implementation would require the backend to accept a start_date and end_date.
                     const startDate = dateRange[0].startDate.toISOString().split('T')[0];
 
-                    const response = await api.get(`/vehicle-analysis/?registration_id=${selection.registration.id}&date=${startDate}`);
+                    const response = await api.get(`/api/vehicle-analysis/?registration_id=${selection.registration.id}&date=${startDate}`);
                     setChartData(response.data.charts);
                 } catch (err) {
                     // Handle cases where no data is found for the selected start date
