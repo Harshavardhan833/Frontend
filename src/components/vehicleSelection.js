@@ -87,7 +87,7 @@ const VehicleInfoCard = ({ vehicle }) => {
 
 const VehicleSelectionPage = () => {
     // 1. First API Call: Get the list of vehicles and summary data
-    const { data: selectionData, loading: selectionLoading, error: selectionError } = useApiData('/vehicle-selection/');
+    const { data: selectionData, loading: selectionLoading, error: selectionError } = useApiData('/api/vehicle-selection/');
     
     // State for the second API call's data (the trail path)
     const [trailPath, setTrailPath] = useState([]);
@@ -108,7 +108,7 @@ const VehicleSelectionPage = () => {
                 const firstVehicle = selectionData.vehicle_list[0];
                 const today = new Date().toISOString().split('T')[0]; // Format date as YYYY-MM-DD
 
-                const trailResponse = await api.get(`/trails/?vehicle_id=${firstVehicle.id}&date=${today}`);
+                const trailResponse = await api.get(`/api/trails/?vehicle_id=${firstVehicle.id}&date=${today}`);
                 setTrailPath(trailResponse.data.trail_path);
             } catch (err) {
                 console.error("Failed to load trail data.", err);

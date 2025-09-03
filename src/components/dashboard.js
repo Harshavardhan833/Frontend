@@ -82,7 +82,7 @@ const Dashboard = () => {
     const fetchDashboardData = async () => {
       try {
         setLoading(true); // Set loading at the start
-        const response = await api.get('/dashboard-stats/');
+        const response = await api.get('/api/dashboard-stats/');
         
         // Process fleet stats (no change here)
         const formattedFleetStats = response.data.fleet_stats.map((stat, index) => ({

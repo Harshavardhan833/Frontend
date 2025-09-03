@@ -27,7 +27,7 @@ const ReportsPage = () => {
     useEffect(() => {
         const fetchFilters = async () => {
             try {
-                const response = await api.get('/reports/?fetch_filters=true');
+                const response = await api.get('/api/reports/?fetch_filters=true');
                 setFilters(response.data);
             } catch (err) {
                 setError("Failed to load filter options.");

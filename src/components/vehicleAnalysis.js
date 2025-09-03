@@ -55,7 +55,7 @@ const VehicleAnalysisPage = () => {
     useEffect(() => {
         const fetchFilters = async () => {
             try {
-                const response = await api.get('/vehicle-analysis/?fetch_filters=true');
+                const response = await api.get('/api/vehicle-analysis/?fetch_filters=true');
                 setFilters(prev => ({ ...prev, vehicleTypes: response.data.filters }));
             } catch (err) {
                 setError("Failed to load filter options.");
