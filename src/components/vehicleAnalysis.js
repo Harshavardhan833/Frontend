@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { Box, Paper, Typography, Grid, Card, CardContent, IconButton, Button, CircularProgress, Menu, MenuItem, Popover, TextField } from '@mui/material';
+import { Box, Paper, Typography, Grid, Card, CardContent, IconButton, Button, CircularProgress, MenuItem, Popover, TextField } from '@mui/material';
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -7,7 +7,6 @@ import { addDays } from 'date-fns';
 import ReactApexChart from 'react-apexcharts';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import FullscreenExitRoundedIcon from '@mui/icons-material/FullscreenExitRounded';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import EventIcon from '@mui/icons-material/Event';
 import api from '../api';
 
